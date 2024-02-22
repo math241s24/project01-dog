@@ -18,6 +18,7 @@ Data Set: Week 18 Dallas Animals
 ```{r}
 readr::read_csv("week18_dallas_animals.csv")%>%
   head(n = 5)
+dog <- read_csv("week18_dallas_animals.csv")
 ```
 
 
@@ -37,6 +38,11 @@ Variables:
 10) Outcome_date(When animals leave the shelter)
 11) Chip_status (is the animal chipped?)
 12) animal_origin (How they got the animal)
+
+```{r}
+#Code for dataframe dimensions
+print(dim(dog))
+```
 
 ##2 Research Questions:
 
