@@ -2,6 +2,7 @@
 title: "Project Proposal"
 format: html
 editor: visual
+names: Jefferson Ratliff, Evi Jonas, Sydney Stitt
 ---
 
 # Proposal – Dallas Animals
