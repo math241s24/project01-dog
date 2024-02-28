@@ -24,6 +24,8 @@ dog <- read_csv("week18_dallas_animals.csv")
 print(dim(dog))
 ```
 
+Data Overview
+
 This data set uses information from a variety of different animal shelters across the City of Dallas, upon their intake to the shelter. Each observation/row is an individual animal entered by staff into the shelter system. There are 34819 observations. The data is across all animal types including dogs, cats and other wildlife.
 
 We chose this data set because we are dog lovers and one of our group members is from Dallas and volunteered at a local shelter. It also seemed to have well collected data with a lot of diversity within key variables like dog breed and intake form.
@@ -53,6 +55,8 @@ Variables:
 11\) Chip_status (is the animal chipped?)
 
 12\) animal_origin (How they got the animal)
+
+Discussion Questions
 
 1.  Which city council districts have the highest rate of adoption? (council_district and outcome_type).
     1.  Filter outcome_type for observations only including adoptions using dplyr.
