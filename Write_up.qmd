@@ -1,0 +1,14 @@
+---
+title: "Dallas Dog - write-up"
+format: html
+editor: visual
+names: Jefferson Ratliff, Evi Jonas, Sydney Stitt
+---
+
+Introduction: 
+
+Our data set we chose collected data across a period of one year between 2016-2017. The data is collected to keep citizens informed about the operation and activities of the shelters across the city. This data set uses information from a variety of different animal shelters across the City of Dallas, upon their intake to the shelter. Each observation/row is an individual animal entered by staff into the shelter system. There are 34819 observations. The data is across all animal types including dogs, cats and other wildlife.
+
+We chose this data set because we are dog lovers and one of our group members is from Dallas and volunteered at a local shelter. It also seemed to have well collected data with a lot of diversity within key variables like dog breed and intake form.
+
+
