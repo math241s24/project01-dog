@@ -2,13 +2,67 @@
 title: "Project Proposal"
 format: html
 editor: visual
+names: Jefferson Ratliff, Evi Jonas, Sydney Stitt
 ---
 
-# Proposal
+# Proposal – Dallas Animals
 
-Your proposal should include:
+```{r}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+library(ggplot2)
+library(dplyr)
+library(readr)
+```
 
-* A brief description of your dataset including its provenance, dimensions, etc. (Make sure to load the data and use inline code for some of this information.)
-* The reason why you chose this dataset.
-* The two questions you want to answer.
-  + A plan for answering each of the questions including the variables involved, variables to be created (if any), external data to be merged in (if any).
+```{r}
+readr::read_csv("week18_dallas_animals.csv")%>%
+  head(n = 5)
+dog <- read_csv("week18_dallas_animals.csv")
+```
+
+```{r}
+#Code for dataframe dimensions
+print(dim(dog))
+```
+
+Data Overview
+
+This data set uses information from a variety of different animal shelters across the City of Dallas, upon their intake to the shelter. Each observation/row is an individual animal entered by staff into the shelter system. There are 34819 observations. The data is across all animal types including dogs, cats and other wildlife.
+
+We chose this data set because we are dog lovers and one of our group members is from Dallas and volunteered at a local shelter. It also seemed to have well collected data with a lot of diversity within key variables like dog breed and intake form.
+
+Variables:
+
+1\) Animal_id (ID number for each animals)
+
+2\) Animal_type (dog, cat, wildlife)
+
+3\) Animal_Breed
+
+4\) Month (intake month)
+
+5\) Month (intake Year)
+
+6\) Census_tract (Geographical Location)
+
+7\) Council_district (Geographical Boundries)
+
+8\) Intake_type
+
+9\) Outcome_type
+
+10\) Outcome_date(When animals leave the shelter)
+
+11\) Chip_status (is the animal chipped?)
+
+12\) animal_origin (How they got the animal)
+
+Discussion Questions
+
+1.  Which city council districts have the highest rate of adoption? (council_district and outcome_type).
+    1.  Filter outcome_type for observations only including adoptions using dplyr.
+    2.  Quantify how many observations of adoptions there are in each district.
+    3.  Graph using bar graph with ggplot2.
+2.  What types of animal intake tend to stay longer in shelters?
+    1.  Mutate new variable for duration of stay with dplyr
+    2.  Graph using bar graph with error bars for average stay (y axis) and type of intake (x axis) with ggplot2
