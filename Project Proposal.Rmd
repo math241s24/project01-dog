@@ -84,7 +84,8 @@ dog_duration <- dog %>%
 dog_duration_summary <- dog_duration %>%
   group_by(intake_type) %>%
   summarize(average_duration = mean(duration, na.rm = TRUE),
-            sd_duration = sd(duration, na.rm = TRUE)) 
+            sd_duration = sd(duration, na.rm = TRUE),
+            count_types = n()) 
 
 #Graphing violin plot (all data)
 ggplot(dog_duration, aes(x = intake_type, y = duration)) +
