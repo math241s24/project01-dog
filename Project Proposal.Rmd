@@ -12,6 +12,7 @@ knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
 library(ggplot2)
 library(dplyr)
 library(readr)
+library(lubridate)
 ```
 
 Data Set: Week 18 Dallas Animals 
