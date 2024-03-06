@@ -8,11 +8,15 @@ date: "2024-02-23"
 
 ```{r setup, include=FALSE}
 # Do not modify this chunk.
+install.packages("tmap")
+
 knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
 library(ggplot2)
 library(dplyr)
 library(readr)
 library(lubridate)
+library(tmap)
+library(sf)
 ```
 
 Data Set: Week 18 Dallas Animals 
