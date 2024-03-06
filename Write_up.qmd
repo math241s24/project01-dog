@@ -58,6 +58,8 @@ ggplot(data = dog_adoptions, aes(x = council_district, y = n_adoptions)) +
 
 Discussion:
 
+There appears to be a wide array of differences in of adoptions by council district with districts 1, 4, 6, and 8 making up the largest four. Districts 10-14 make up the least amount of adoptions. We were able to find such a wide difference by council district reveling to us that geography is a major factor in pet adoption in the City of Dallas. Our visualization provides a clear understanding and answer to our research question.
+
 **Question 2:** What types of animal intake tend to stay longer in shelters?
 
 Introduction:
