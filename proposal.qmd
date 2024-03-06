@@ -45,7 +45,7 @@ Variables:
 
 6\) Census_tract (Geographical Location)
 
-7\) Council_district (Geographical Boundries)
+7\) Council_district (Geographical Boundaries)
 
 8\) Intake_type
 
