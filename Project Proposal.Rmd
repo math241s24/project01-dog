@@ -69,8 +69,6 @@ ggplot(data = dog_adoptions, aes(x = council_district, y = n_adoptions)) +
   geom_bar(stat = "identity") +
   labs(x = "Council District", y = "Number of Adoptions") +
   ggtitle("Dog Adoptions by Council District")
-
-
 ```
 
 ```{r}
@@ -79,8 +77,6 @@ dallas_districts <- st_read("C:/Users/agjjo/Downloads/Documents/GitHub/project01
 
 ggplot()+
   geom_sf(data = dallas_districts)
-
-
 
 
 ```

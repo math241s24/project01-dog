@@ -5,6 +5,19 @@ editor: visual
 names: Jefferson Ratliff, Evi Jonas, Sydney Stitt
 ---
 
+```{r}
+# Do not modify this chunk.
+install.packages("tmap")
+
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+library(ggplot2)
+library(dplyr)
+library(readr)
+library(lubridate)
+library(tmap)
+library(sf)
+```
+
 Introduction:
 
 Our data set we chose collected data across a period of one year between 2016-2017. The data is collected to keep citizens informed about the operation and activities of the shelters across the city. This data set uses information from a variety of different animal shelters across the City of Dallas, upon their intake to the shelter. Each observation/row is an individual animal entered by staff into the shelter system. There are 34819 observations. The data is across all animal types including dogs, cats and other wildlife.
@@ -15,9 +28,9 @@ We chose this data set because we are dog lovers and one of our group members is
 
 Introduction:
 
-The question at hand involves investigating the adoption rates across various city council districts, specifically focusing on the variables council_district and outcome_type. To address this query effectively, it is crucial to filter the dataset using the dplyr package to isolate observations related to adoptions. By narrowing down the dataset to only include these instances, we can then proceed to quantify the number of adoptions in each city council district. To visually represent this information, the ggplot2 package will be employed to create a bar graph, offering a clear and concise presentation of the adoption rates across different districts.
+The question at hand involves investigating the adoption rates across various city council districts, specifically focusing on the variables council_district and outcome_type. To address this query effectively, it is crucial to filter the data set using the dplyr package to isolate observations related to adoptions. By narrowing down the data set to only include these instances, we can then proceed to quantify the number of adoptions in each city council district. To visually represent this information, the ggplot2 package will be employed to create a bar graph, offering a clear and concise presentation of the adoption rates across different districts.
 
-To accomplish this analysis, the dataset needs to include relevant information such as council_district and outcome_type. The dataset should be pre-processed using dplyr functions to filter and extract the necessary observations related to adoptions. The quantification process involves counting the number of adoption instances within each city council district. Finally, the visualization aspect will be addressed using ggplot2 to generate a bar graph that illustrates the variations in adoption rates across different districts. My interest in this question is driven by the need to understand the geographical distribution of adoption rates within a city, which can have implications for resource allocation, community outreach, and policy planning to enhance animal welfare and adoption initiatives.
+To accomplish this analysis, the data set needs to include relevant information such as council_district and outcome_type. The data set should be pre-processed using dplyr functions to filter and extract the necessary observations related to adoptions. The quantification process involves counting the number of adoption instances within each city council district. Finally, the visualization aspect will be addressed using ggplot2 to generate a bar graph that illustrates the variations in adoption rates across different districts. My interest in this question is driven by the need to understand the geographical distribution of adoption rates within a city, which can have implications for resource allocation, community outreach, and policy planning to enhance animal welfare and adoption initiatives.
 
 Approach:
 
@@ -46,3 +59,27 @@ ggplot(data = dog_adoptions, aes(x = council_district, y = n_adoptions)) +
 Discussion:
 
 **Question 2:** What types of animal intake tend to stay longer in shelters?
+
+Introduction:
+
+Approach:
+
+Analysis:
+
+```{r}
+#finding number of total adoptions per district in the data frame
+dog_adoptions <- dog %>%
+  filter(outcome_type == "ADOPTION") %>% 
+  group_by(council_district) %>% 
+  summarize(
+    n_adoptions = n()
+  )
+
+# Now let's create the plot
+ggplot(data = dog_adoptions, aes(x = council_district, y = n_adoptions)) +
+  geom_bar(stat = "identity") +
+  labs(x = "Council District", y = "Number of Adoptions") +
+  ggtitle("Dog Adoptions by Council District")
+```
+
+Discussion:
