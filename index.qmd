@@ -38,15 +38,12 @@ To comprehensively address the question of dog adoption rates across city counci
 
 Analysis:
 
-<<<<<<< HEAD
 ```{r echo=FALSE}
-=======
-```{r}
+
 readr::read_csv("data/week18_dallas_animals.csv") %>%
   head(n = 5)
 dog <- read_csv("data/week18_dallas_animals.csv")
 
->>>>>>> 877cd1d6783578ac73524b23fd5db56a6204c6cd
 #finding number of total adoptions per district in the data frame
 dog_adoptions <- dog %>%
   filter(outcome_type == "ADOPTION") %>% 
@@ -85,7 +82,6 @@ tm_shape(adoptions_map) +
   tm_layout( 
             main.title.position = "center", 
             legend.outside = TRUE)
-
 ```
 
 Discussion:
