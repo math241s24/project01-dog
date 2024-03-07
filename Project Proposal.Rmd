@@ -8,7 +8,7 @@ date: "2024-02-23"
 
 ```{r setup, include=FALSE}
 # Do not modify this chunk.
-install.packages("tmap")
+#install.packages("tmap")
 
 knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
 library(ggplot2)
@@ -74,18 +74,35 @@ ggplot(data = dog_adoptions, aes(x = council_district, y = n_adoptions)) +
 ```
 
 ```{r}
-#trying to make a map
-dallas_districts <- st_read("C:/Users/agjjo/Downloads/Documents/GitHub/project01-dog/data/Councils/Councils.shp")
+#making sure the shape file works (and that I know what I'm doing)
+dallas_districts <- st_read("C:/Users/agjjo/OneDrive/Documents/GitHub/project01-dog/data/Councils/Councils.shp")
 
 ggplot()+
   geom_sf(data = dallas_districts)
+```
 
-
-
+```{r}
+#joining the adoption data to the shape file
+adoptions_map <- dallas_districts %>%
+  st_transform (4326) %>%
+  inner_join(dog_adoptions, by = c("DISTRICT" = "council_district"))
 
 ```
 
+```{r}
 
+#making a choropleth map of dog adoptions by district
+tm_shape(adoptions_map) + 
+  tm_polygons(col = "n_adoptions", 
+              style = "quantile", 
+              palette = "BuGn", 
+              title = "adoptions by council district") + 
+  tm_layout( 
+            main.title.position = "center", 
+            legend.outside = TRUE)
+
+
+```
 
 2. What types of animal intake tend to stay longer in shelters?
 Mutate new variable for duration of stay with dplyr, bar graph with error bars for average stay (y axis) and type of intake (x axis) with ggplot2
