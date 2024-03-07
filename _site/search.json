@@ -47,5 +47,89 @@
     "title": "Dallas Dog - write-up",
     "section": "",
     "text": "Write-up Your write-up should consist of three parts:\nIntroduction (1-2 paragraphs): Brief introduction to the dataset. You may repeat some of the information about the dataset provided in the introduction to the dataset on the TidyTuesday repository (or from the dataset provider if you found the dataset elsewhere). Imagine that your project is a standalone document and the grader has no prior knowledge of the dataset.\nQuestion 1: The title should relate to the question you’re answering.\nIntroduction (1-2 paragraphs): Introduction to the question and what parts of the dataset are necessary to answer the question. Also discuss why you’re interested in this question.\nApproach (1-2 paragraphs): Describe what types of plots you are going to make to address your question. For each plot, provide a clear explanation as to why this plot (e.g. boxplot, barplot, histogram, etc.) is best for providing the information you are asking about. The two plots should be of different types, and at least one of the two plots needs to use either color mapping or facets.\nAnalysis (2-3 code blocks, 2 figures, text/code comments as needed): In this section, provide the code that generates your plots. Use scale functions to provide nice axis labels and guides. You are welcome to use theme functions to customize the appearance of your plot, but you are not required to do so. All plots must be made with ggplot2. Do not use base R or lattice plotting functions.\nDiscussion (1-3 paragraphs): In the Discussion section, interpret the results of your analysis. Identify any trends revealed (or not revealed) by the plots. Speculate about why the data looks the way it does.\nQuestion 2: Same structure outlined for Question 1, but for your new question. And the title should relate to the question you’re answering.\nWe encourage you to be concise. A paragraph should typically not be longer than 5 sentences.\nYou are not required to perform any statistical tests in this project, but you may do so if you find it helpful to answer your question.\nIntroduction:\nOur dataset we chose\nThis data set uses information from a variety of different animal shelters across the City of Dallas, upon their intake to the shelter. Each observation/row is an individual animal entered by staff into the shelter system. There are 34819 observations. The data is across all animal types including dogs, cats and other wildlife.\nWe chose this data set because we are dog lovers and one of our group members is from Dallas and volunteered at a local shelter. It also seemed to have well collected data with a lot of diversity within key variables like dog breed and intake form."
+  },
+  {
+    "objectID": "Presentation_Draft.html#example-of-a-dog-in-dallas",
+    "href": "Presentation_Draft.html#example-of-a-dog-in-dallas",
+    "title": "The Real House Pets of Dallas",
+    "section": "Example of a Dog in Dallas:",
+    "text": "Example of a Dog in Dallas:"
+  },
+  {
+    "objectID": "Presentation_Draft.html#other-wildlife-not-dallas-specific",
+    "href": "Presentation_Draft.html#other-wildlife-not-dallas-specific",
+    "title": "The Real House Pets of Dallas",
+    "section": "Other Wildlife (Not Dallas Specific):",
+    "text": "Other Wildlife (Not Dallas Specific):"
+  },
+  {
+    "objectID": "Presentation_Draft.html#our-opening-spiel",
+    "href": "Presentation_Draft.html#our-opening-spiel",
+    "title": "The Real House Pets of Dallas",
+    "section": "Our Opening Spiel:",
+    "text": "Our Opening Spiel:\nUsing publicly available data supplied by the venerable animal shelters of the City of Dallas, we set out to cultivate a clearer understanding of who adopts, and who gets adopted.\nThis was achieved by examining two key questions, those being:\n\nWhich city council districts have the highest rate of adoption?\nWhat types of animal intake tend to stay longer in shelters?"
+  },
+  {
+    "objectID": "Presentation_Draft.html#q1-dallas-adopters-club",
+    "href": "Presentation_Draft.html#q1-dallas-adopters-club",
+    "title": "The Real House Pets of Dallas",
+    "section": "Q1, Dallas Adopters Club:",
+    "text": "Q1, Dallas Adopters Club:\nTo tackle the first of these two questions, the variables council_district and outcome_type were isolated to allow for each district to be measured against the number of animals taken into shelters whose case was resolved in adoption.\nWith a clearer picture of where adoption rates are highest, resources supporting shelter operations may be more effectively allocated, improving outcomes for prospective adopters and the adoptees they might hope to take in."
+  },
+  {
+    "objectID": "Presentation_Draft.html#dallas-adopters-club-cont",
+    "href": "Presentation_Draft.html#dallas-adopters-club-cont",
+    "title": "The Real House Pets of Dallas",
+    "section": "Dallas Adopters Club (Cont’):",
+    "text": "Dallas Adopters Club (Cont’):\nHere is what we found:"
+  },
+  {
+    "objectID": "Presentation_Draft.html#dallas-adopters-club-cont-cont",
+    "href": "Presentation_Draft.html#dallas-adopters-club-cont-cont",
+    "title": "The Real House Pets of Dallas",
+    "section": "Dallas Adopters Club (Cont’) (Cont’):",
+    "text": "Dallas Adopters Club (Cont’) (Cont’):\n(I took a few swipes at getting some nice language here, but I think the conclusions section of the presentation probably deserves some collective input. As a placeholder, I have paraphrased the conclusion from the write-up)\nAdoption rates proved to be highly variable across council districts, with the top spots going to districts 1, 4, 6, and 8. Districts with the lowest rates of adoption include 10-14. From this, we may conclude that geography plays a major role in pet adoption in the City of Dallas."
+  },
+  {
+    "objectID": "Presentation_Draft.html#q2-those-that-linger",
+    "href": "Presentation_Draft.html#q2-those-that-linger",
+    "title": "The Real House Pets of Dallas",
+    "section": "Q2, Those that Linger:",
+    "text": "Q2, Those that Linger:\nTurning to our second query, we weighed the manner of intake which animals underwent against the duration of their stay in a shelter. This was done by constructing a measurement from the intake date to the outtake date (dog_duration), and charting it against intake_type.\nWe then generated three visualizations from which to glean trends."
+  },
+  {
+    "objectID": "Presentation_Draft.html#those-that-linger-cont",
+    "href": "Presentation_Draft.html#those-that-linger-cont",
+    "title": "The Real House Pets of Dallas",
+    "section": "Those that Linger (Cont’):",
+    "text": "Those that Linger (Cont’):"
+  },
+  {
+    "objectID": "Presentation_Draft.html#those-that-linger-cont-cont",
+    "href": "Presentation_Draft.html#those-that-linger-cont-cont",
+    "title": "The Real House Pets of Dallas",
+    "section": "Those that Linger (Cont’) (Cont’):",
+    "text": "Those that Linger (Cont’) (Cont’):"
+  },
+  {
+    "objectID": "Presentation_Draft.html#those-that-linger-cont-cont-cont",
+    "href": "Presentation_Draft.html#those-that-linger-cont-cont-cont",
+    "title": "The Real House Pets of Dallas",
+    "section": "Those that Linger (Cont’) (Cont’) (Cont’):",
+    "text": "Those that Linger (Cont’) (Cont’) (Cont’):"
+  },
+  {
+    "objectID": "Presentation_Draft.html#those-that-linger-cont-cont-cont-cont",
+    "href": "Presentation_Draft.html#those-that-linger-cont-cont-cont-cont",
+    "title": "The Real House Pets of Dallas",
+    "section": "Those that Linger (Cont’) (Cont’) (Cont’) (Cont’):",
+    "text": "Those that Linger (Cont’) (Cont’) (Cont’) (Cont’):\n(Also leaving this with a placeholder for the mo’ – I imagine we really only need three or four lines describing our takeaways.)\nObserving the data, we found that Owner Surrender and Stray were the two most common forms of intake. In terms of duration, intake via Foster, Wildlife, Owner Surrender, and Stray correlated with the briefest tenures in shelter care, with Found and Lost Report correlating with lengthier stays."
+  },
+  {
+    "objectID": "Presentation_Draft.html#thank-you-for-listening",
+    "href": "Presentation_Draft.html#thank-you-for-listening",
+    "title": "The Real House Pets of Dallas",
+    "section": "Thank you for Listening",
+    "text": "Thank you for Listening\nNow go out and adopt an animal, volunteer at a shelter, or just [funny third thing]"
   }
 ]
