@@ -38,7 +38,7 @@ To comprehensively address the question of dog adoption rates across city counci
 
 Analysis:
 
-```{r}
+```{r echo=FALSE}
 #finding number of total adoptions per district in the data frame
 dog_adoptions <- dog %>%
   filter(outcome_type == "ADOPTION") %>% 
@@ -48,7 +48,7 @@ dog_adoptions <- dog %>%
   )
 ```
 
-```{r}
+```{r echo=FALSE}}
 # Now let's create the plot
 ggplot(data = dog_adoptions, aes(x = council_district, y = n_adoptions)) +
   geom_bar(stat = "identity") +
@@ -56,7 +56,7 @@ ggplot(data = dog_adoptions, aes(x = council_district, y = n_adoptions)) +
   ggtitle("Dog Adoptions by Council District")
 ```
 
-```{r}
+```{r echo=FALSE}
 #trying to make a map
 dallas_districts <- st_read("C:/Users/agjjo/Downloads/Documents/GitHub/project01-dog/data/Councils/Councils.shp")
 
@@ -82,7 +82,7 @@ To address the inquiry regarding the factors influencing the duration of stay fo
 
 Analysis:
 
-```{r}
+```{r echo=FALSE}
 #Making a duration variable using dplyr
 dog_duration <- dog %>%
    mutate(intake_date = mdy(intake_date),
