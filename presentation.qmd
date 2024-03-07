@@ -13,9 +13,9 @@ editor_options:
 
 ## Example of a Dog in Dallas: {style="color: green"}
 
-![](CTS-Puppy-Bandana-2020.webp)
+![](data/CTS-Puppy-Bandana-2020.webp)
 
-## Other Wildlife (*Not Dallas Specific*):![](Screenshot%202024-03-06%20at%2018.42.22.png) {style="color: green"}
+## Other Wildlife (*Not Dallas Specific*):![](data/Screenshot 2024-03-06 at 18.42.22.png) {style="color: green"}
 
 ```{r setup, include=FALSE}
 # Do not modify this chunk.
@@ -143,4 +143,4 @@ Observing the data, we found that *Owner Surrender* and *Stray* were the two mos
 
 Now go out and adopt an animal, volunteer at a shelter, or just \[funny third thing\]
 
-![](An%20animal%20shelt%2026c6ebca-c687-4492-a84a-370713f847d9.png)
+![](data/An animal shelt 26c6ebca-c687-4492-a84a-370713f847d9.png)
