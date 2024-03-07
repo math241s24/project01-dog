@@ -119,4 +119,4 @@ ggplot(dog_duration, aes(x = duration)) +
 
 Discussion:
 
-Our data found that "Owner Surrender" and "stray" are by far the most common with "stray" having a strong lead over
+Our data found that "Owner Surrender" and "stray" are by far the most common with "stray" having a significant higher share of the intake forms. This means that a large plurality of shelter animals in Dallas are strays from the street rather than from individual owners or confiscations. It is also apparent from our data that "Foster", "Wildlife", "Owner Surrender", and "Stray" are the intake categories that have the lowest duration of stays out of the other intake options. Found and Lost Report in take forms have the largest average stays.
