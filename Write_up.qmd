@@ -56,6 +56,14 @@ ggplot(data = dog_adoptions, aes(x = council_district, y = n_adoptions)) +
   ggtitle("Dog Adoptions by Council District")
 ```
 
+```{r}
+#trying to make a map
+dallas_districts <- st_read("C:/Users/agjjo/Downloads/Documents/GitHub/project01-dog/data/Councils/Councils.shp")
+
+ggplot()+
+  geom_sf(data = dallas_districts)
+```
+
 Discussion:
 
 There appears to be a wide array of differences in of adoptions by council district with districts 1, 4, 6, and 8 making up the largest four. Districts 10-14 make up the least amount of adoptions. We were able to find such a wide difference by council district reveling to us that geography is a major factor in pet adoption in the City of Dallas. Our visualization provides a clear understanding and answer to our research question.
