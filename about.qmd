@@ -4,4 +4,15 @@ format: html
 editor: visual
 ---
 
+```{r}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+install.packages("tmap")
+library(ggplot2)
+library(dplyr)
+library(readr)
+library(lubridate)
+library(tmap)
+library(sf)
+```
+
 This project is developed by **Sydney Stitt, Jefferson Ratliff, Evi Jonas, and Dashiell Ward** for Reed College's MATH241 Data Science course.
