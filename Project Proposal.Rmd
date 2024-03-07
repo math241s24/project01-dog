@@ -81,6 +81,29 @@ ggplot()+
 
 ```
 
+```{r}
+#joining the adoption data to the shape file
+adoptions_map <- dallas_districts %>%
+  st_transform (4326) %>%
+  inner_join(dog_adoptions, by = c("DISTRICT" = "council_district"))
+
+```
+
+```{r}
+
+#making a choropleth map of dog adoptions by district
+tm_shape(adoptions_map) + 
+  tm_polygons(col = "n_adoptions", 
+              style = "quantile", 
+              palette = "BuGn", 
+              title = "adoptions by council district") + 
+  tm_layout( 
+            main.title.position = "center", 
+            legend.outside = TRUE)
+
+
+```
+
 
 
 2. What types of animal intake tend to stay longer in shelters?
