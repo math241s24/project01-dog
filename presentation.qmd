@@ -15,7 +15,7 @@ editor_options:
 
 ![](data/CTS-Puppy-Bandana-2020.webp)
 
-## Other Wildlife (*Not Dallas Specific*):![](data/Screenshot 2024-03-06 at 18.42.22.png) {style="color: green"}
+## Other Wildlife (*Not Dallas Specific*):![](data/Screenshot%202024-03-06%20at%2018.42.22.png) {style="color: green"}
 
 ```{r setup, include=FALSE}
 # Do not modify this chunk.
@@ -63,7 +63,8 @@ dog_adoptions <- dog %>%
 
 # Now let's create the plot
 ggplot(data = dog_adoptions, aes(x = council_district, y = n_adoptions)) +
-  geom_bar(stat = "identity") +
+  geom_bar(stat = "identity", fill = "#99d8c9",
+              color = "#00441b") +
   labs(x = "Council District", y = "Number of Adoptions") +
   ggtitle("Dog Adoptions by Council District")
 ```
@@ -71,6 +72,31 @@ ggplot(data = dog_adoptions, aes(x = council_district, y = n_adoptions)) +
 ## Dallas Adopters Club (Cont') (Cont'):
 
 Adoption rates proved to be highly variable across council districts, with the top spots going to districts 1, 4, 6, and 8. Districts with the lowest rates of adoption include 10-14. From this, we may conclude that geography plays a major role in pet adoption in the City of Dallas.
+
+## Dallas Adopters Club (Cont') (Cont') (Cont'):
+
+```{r echo=FALSE, message=FALSE}
+dallas_districts <- st_read("/Users/sydneystitt/Desktop/MATH241/project01-dog/data/Councils/Councils.shp")
+ggplot() +
+  geom_sf(data = dallas_districts)
+adoptions_map <- dallas_districts %>%
+  st_transform (4326) %>%
+  inner_join(dog_adoptions, by = c("DISTRICT" = "council_district"))
+```
+
+## Dallas Adopters Club (Cont') (Cont') (Cont') (Cont'):
+
+```{r, echo=FALSE}
+tm_shape(adoptions_map) + 
+  tm_polygons(col = "n_adoptions", 
+              style = "quantile", 
+              palette = "BuGn", 
+              title = "adoptions by council district") + 
+  tm_layout( 
+            main.title.position = "center", 
+            legend.outside = TRUE) +
+    ggtitle("Dog Adoptions by Council District")
+```
 
 ## Q2, Those that Linger:
 
@@ -80,51 +106,41 @@ We then generated three visualizations from which to glean trends.
 
 ## Those that Linger (Cont'):
 
-```{r echo=FALSE}
+```{r}
 #Making a duration variable using dplyr
 dog_duration <- dog %>%
    mutate(intake_date = mdy(intake_date),
          outcome_date = mdy(outcome_date)) %>%
   mutate(duration = difftime(outcome_date, intake_date, units = "days")) %>%
   mutate(duration = as.vector(duration))
-
-#Getting summary statistics for average duration
 dog_duration_summary <- dog_duration %>%
   group_by(intake_type) %>%
   summarize(average_duration = mean(duration, na.rm = TRUE),
             sd_duration = sd(duration, na.rm = TRUE),
             count_types = n()) 
+print(dog_duration_summary)
+```
 
+## Those that Linger (Cont') (Cont'):
+
+```{r, echo=FALSE}
 #Graphing violin plot (all data)
 ggplot(dog_duration, aes(x = intake_type, y = duration)) +
-  geom_violin() +
+  geom_violin(fill = "#99d8c9",
+              color = "#00441b") +
   theme_minimal(base_size = 8) +
   labs(x = "Intake Type", 
        y = "Duration of Stay", 
        title = "Shelter Intake Types and Durations in Dallas Animal Shelters in 2016 and 2017")
 ```
 
-## Those that Linger (Cont') (Cont'):
-
-```{r echo=FALSE}
-#Graphing bar graph, sd is larger than mean which means there is abnormal distributions
-ggplot(dog_duration_summary) +
-  geom_bar(aes(x = intake_type, y = average_duration), 
-           stat = "identity") +
-  geom_errorbar(aes(x = intake_type, 
-                    ymin = average_duration - sd_duration, 
-                    ymax = average_duration + sd_duration)) +
-    labs(x = "Intake Type", 
-       y = "Duration of Stay with Error Bars", 
-       title = "Shelter Intake Types and Durations in Dallas Animal Shelters in 2016 and 2017")
-```
-
 ## Those that Linger (Cont') (Cont') (Cont'):
 
-```{r echo=FALSE}
-#Graphing histograms, y scale is messed up because stray has many more observations than other groups
+```{r, echo=FALSE}
+#Plot
 ggplot(dog_duration, aes(x = duration)) +
-  geom_histogram() +
+  geom_histogram(fill = "#99d8c9",
+              color = "#00441b") +
   facet_wrap(~intake_type) +
   labs(x = "Intake Type", 
        y = "Duration of Stay", 
@@ -133,10 +149,10 @@ ggplot(dog_duration, aes(x = duration)) +
 
 ## Those that Linger (Cont') (Cont') (Cont') (Cont'):
 
-Observing the data, we found that *Owner Surrender* and *Stray* were the two most common forms of intake. In terms of duration, intake via *Foster*, *Wildlife*, *Owner Surrender*, and *Stray* correlated with the briefest tenures in shelter care, with *Found* and *Lost Report* correlating with lengthier stays.
+Observing the data, we found that *Owner Surrender* and *Stray* were the two most common forms of intake. In terms of duration, intake via *Foster*, *Wildlife*, *Owner Surrender*, and *Stray* correlated with the briefest tenures in shelter care, with *Found* and *Lost Report* correlating with lengthier stays. This may be because contacting owners for lost and found animals can be a lengthy process. Additionally, most wildlife animals end up euthanized.
 
 ## Thank you for Listening
 
-Now go out and adopt an animal, volunteer at a shelter, or just gift Adrien a shelter dog!
+Now go out and adopt an animal, volunteer at a shelter, or just gift Adrien a shelter dog
 
-![](data/An animal shelt 26c6ebca-c687-4492-a84a-370713f847d9.png)
+![](data/An%20animal%20shelt%2026c6ebca-c687-4492-a84a-370713f847d9.png)
