@@ -1,6 +1,6 @@
 ---
 title: "Project Presentation: Dallas Dogs"
-subtitle: "Jefferson Ratliff, Evi Jonas, Sydney Stitt"
+subtitle: "Jefferson Ratliff, Evi Jonas, Sydney Stitt, Dashiell Ward"
 format: 
   revealjs
 highlight-style: a11y
