@@ -1,35 +1,130 @@
 ---
-title: "Project Write-up"
+title: "Dallas Dog - write-up"
 format: html
 editor: visual
+names: Jefferson Ratliff, Evi Jonas, Sydney Stitt
 ---
 
-# Write-up
-Your write-up should consist of three parts:
+```{r}
+# Do not modify this chunk.
+install.packages("tmap")
 
-## Introduction (1-2 paragraphs): 
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+library(ggplot2)
+library(dplyr)
+library(readr)
+library(lubridate)
+library(tmap)
+library(sf)
+```
 
-Brief introduction to the dataset. You may repeat some of the information about the dataset provided in the introduction to the dataset on the `TidyTuesday` repository, for instance. Imagine that your project is a standalone document and the grader has no prior knowledge of the dataset.
+Introduction:
 
-### Question 1: 
-The title should relate to the question you’re answering.
+Our data set we chose collected data across a period of one year between 2016-2017. The data is collected to keep citizens informed about the operation and activities of the shelters across the city. This data set uses information from a variety of different animal shelters across the City of Dallas, upon their intake to the shelter. Each observation/row is an individual animal entered by staff into the shelter system. There are 34819 observations. The data is across all animal types including dogs, cats and other wildlife.
 
-#### Introduction (1-2 paragraphs): 
-Introduction to the question and what parts of the dataset are necessary to answer the question. Also discuss why you’re interested in this question.
+We chose this data set because we are dog lovers and one of our group members is from Dallas and volunteered at a local shelter. It also seemed to have well collected data with a lot of diversity within key variables like dog breed and intake form.
 
-#### Approach (1-2 paragraphs):
-Describe what types of plots you are going to make to address your question. For each plot, provide a clear explanation as to why this plot (e.g. boxplot, barplot, histogram, etc.) is best for providing the information you are asking about. The two plots should be of different types, and at least one of the two plots needs to use either color mapping or facets.
+**Question 1:** Which city council districts have the highest rate of adoption?
 
-#### Analysis (2-3 code blocks, 2 figures, text/code comments as needed):
-In this section, provide the code that generates your plots. Use scale functions to provide nice axis labels and guides. You are welcome to use theme functions to customize the appearance of your plot, but you are not required to do so. All plots must be made with ggplot2. Do not use base R or lattice plotting functions.
+Introduction:
 
-#### Discussion (1-3 paragraphs):
-In the Discussion section, interpret the results of your analysis. Identify any trends revealed (or not revealed) by the plots. Speculate about why the data looks the way it does.
+The question at hand involves investigating the adoption rates across various city council districts, specifically focusing on the variables council_district and outcome_type. To address this query effectively, it is crucial to filter the data set using the dplyr package to isolate observations related to adoptions. By narrowing down the data set to only include these instances, we can then proceed to quantify the number of adoptions in each city council district. To visually represent this information, the ggplot2 package will be employed to create a bar graph, offering a clear and concise presentation of the adoption rates across different districts.
 
-### Question 2: 
-Same structure outlined for Question 1, but for your new question. And the title should relate to the question you’re answering.
+To accomplish this analysis, the data set needs to include relevant information such as council_district and outcome_type. The data set should be pre-processed using dplyr functions to filter and extract the necessary observations related to adoptions. The quantification process involves counting the number of adoption instances within each city council district. Finally, the visualization aspect will be addressed using ggplot2 to generate a bar graph that illustrates the variations in adoption rates across different districts. My interest in this question is driven by the need to understand the geographical distribution of adoption rates within a city, which can have implications for resource allocation, community outreach, and policy planning to enhance animal welfare and adoption initiatives.
 
-We encourage you to be concise. A paragraph should typically not be longer than 5 sentences.
+Approach:
 
-You are not required to perform any statistical tests in this project, but you may do so if you find it helpful to answer your question.
+To comprehensively address the question of dog adoption rates across city council districts, a combination of visualizations has been employed. The initial bar plot succinctly illustrates the raw counts of adoptions in each district, providing a quick overview of the districts with higher adoption rates. Building upon this, a box plot offers a more detailed perspective, showcasing the distribution of adoption rates within each district. This plot is instrumental in identifying any potential variations, outliers, or skewness in the adoption data. Finally, a faceted bar plot takes the analysis a step further by presenting individual bar plots for each council district. This approach allows for a nuanced examination of adoption patterns in each district while maintaining a clear comparative framework. Together, these visualizations offer a comprehensive understanding of the adoption landscape, enabling insights into both the overall trends and the variability within specific city council districts.
 
+Analysis:
+
+```{r}
+#finding number of total adoptions per district in the data frame
+dog_adoptions <- dog %>%
+  filter(outcome_type == "ADOPTION") %>% 
+  group_by(council_district) %>% 
+  summarize(
+    n_adoptions = n()
+  )
+```
+
+```{r}
+# Now let's create the plot
+ggplot(data = dog_adoptions, aes(x = council_district, y = n_adoptions)) +
+  geom_bar(stat = "identity") +
+  labs(x = "Council District", y = "Number of Adoptions") +
+  ggtitle("Dog Adoptions by Council District")
+```
+
+```{r}
+#trying to make a map
+dallas_districts <- st_read("C:/Users/agjjo/Downloads/Documents/GitHub/project01-dog/data/Councils/Councils.shp")
+
+ggplot()+
+  geom_sf(data = dallas_districts)
+```
+
+Discussion:
+
+There appears to be a wide array of differences in of adoptions by council district with districts 1, 4, 6, and 8 making up the largest four. Districts 10-14 make up the least amount of adoptions. We were able to find such a wide difference by council district reveling to us that geography is a major factor in pet adoption in the City of Dallas. Our visualization provides a clear understanding and answer to our research question.
+
+**Question 2:** What types of animal intake tend to stay longer in shelters?
+
+Introduction:
+
+This question aims to investigate the factors influencing the duration of stay for animals in shelters, with a specific focus on different types of animal intake. To answer this query effectively, a new variable representing the duration of stay will be created using the dplyr package. Subsequently, a bar graph with error bars will be generated using ggplot2 to visually represent the average stay duration for each type of animal intake. This analysis is motivated by the need to understand the patterns in shelter stay durations, which can inform shelter management strategies and improve the overall welfare of animals in these facilities.
+
+To address this question, the dataset should include relevant variables such as animal intake type and potentially other factors affecting stay duration. The dplyr package will be utilized to mutate a new variable indicating the duration of stay. The subsequent ggplot2 bar graph will display the average stay duration on the y-axis and different types of animal intake on the x-axis, with error bars providing insights into the variability around the average stay durations. This approach allows for a comprehensive visualization of how various animal intake types correlate with the average duration of stay in shelters, offering valuable insights for shelters to optimize their practices and enhance the overall well-being of sheltered animals.
+
+Approach:
+
+To address the inquiry regarding the factors influencing the duration of stay for animals in shelters, a systematic approach involving the dplyr and ggplot2 packages is employed. Firstly, a new variable representing the duration of stay is introduced using the dplyr package. This step allows for the transformation of the data set to include a critical metric—stay duration—essential for subsequent analysis. The ggplot2 package is then leveraged to create a visually informative bar graph. This graph employs the average stay duration as the y-axis variable and different types of animal intake as categorical variables along the x-axis. Including error bars in the visualization provides a measure of variability around the mean stay duration for each intake type, offering a more comprehensive understanding of the data distribution. This meticulous approach not only captures the central tendencies in shelter stay duration but also provides insights into the potential variations and uncertainties associated with each animal intake category.
+
+Analysis:
+
+```{r}
+#Making a duration variable using dplyr
+dog_duration <- dog %>%
+   mutate(intake_date = mdy(intake_date),
+         outcome_date = mdy(outcome_date)) %>%
+  mutate(duration = difftime(outcome_date, intake_date, units = "days")) %>%
+  mutate(duration = as.vector(duration))
+
+#Getting summary statistics for average duration
+dog_duration_summary <- dog_duration %>%
+  group_by(intake_type) %>%
+  summarize(average_duration = mean(duration, na.rm = TRUE),
+            sd_duration = sd(duration, na.rm = TRUE),
+            count_types = n()) 
+
+#Graphing violin plot (all data)
+ggplot(dog_duration, aes(x = intake_type, y = duration)) +
+  geom_violin() +
+  theme_minimal(base_size = 8) +
+  labs(x = "Intake Type", 
+       y = "Duration of Stay", 
+       title = "Shelter Intake Types and Durations in Dallas Animal Shelters in 2016 and 2017")
+
+#Graphing bar graph, sd is larger than mean which means there is abnormal distributions
+ggplot(dog_duration_summary) +
+  geom_bar(aes(x = intake_type, y = average_duration), 
+           stat = "identity") +
+  geom_errorbar(aes(x = intake_type, 
+                    ymin = average_duration - sd_duration, 
+                    ymax = average_duration + sd_duration)) +
+    labs(x = "Intake Type", 
+       y = "Duration of Stay with Error Bars", 
+       title = "Shelter Intake Types and Durations in Dallas Animal Shelters in 2016 and 2017")
+
+#Graphing histograms, y scale is messed up because stray has many more observations than other groups
+ggplot(dog_duration, aes(x = duration)) +
+  geom_histogram() +
+  facet_wrap(~intake_type) +
+  labs(x = "Intake Type", 
+       y = "Duration of Stay", 
+       title = "Shelter Intake Duration Distrib in Dallas Animal Shelters in 2016 and 2017")
+```
+
+Discussion:
+
+Our data found that "Owner Surrender" and "stray" are by far the most common with "stray" having a significant higher share of the intake forms. This means that a large plurality of shelter animals in Dallas are strays from the street rather than from individual owners or confiscations. It is also apparent from our data that "Foster", "Wildlife", "Owner Surrender", and "Stray" are the intake categories that have the lowest duration of stays out of the other intake options. Found and Lost Report in take forms have the largest average stays.
