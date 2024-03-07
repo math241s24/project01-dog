@@ -1,0 +1,144 @@
+---
+title: "The Real House Pets of *Dallas*"
+subtitle: "Jefferson Ratliff, Evi Jonas, Sydney Stitt, Dashiell Ward"
+format: 
+  revealjs
+highlight-style: monokai
+execute:
+  code-link: true
+  echo: true
+editor_options: 
+  chunk_output_type: console
+---
+
+## Example of a Dog in Dallas: {style="color: green"}
+
+![](CTS-Puppy-Bandana-2020.webp)
+
+## Other Wildlife (*Not Dallas Specific*):![](Screenshot%202024-03-06%20at%2018.42.22.png) {style="color: green"}
+
+```{r setup, include=FALSE}
+# Do not modify this chunk.
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+library(ggplot2)
+library(dplyr)
+library(readr)
+library(lubridate)
+
+readr::read_csv("week18_dallas_animals.csv")%>%
+  head(n = 5)
+dog <- read_csv("week18_dallas_animals.csv")
+```
+
+## Our Opening Spiel:
+
+Using publicly available data supplied by the venerable animal shelters of the City of Dallas, we set out to cultivate a clearer understanding of who adopts, and who gets adopted.
+
+This was achieved by examining two key questions, those being:
+
+-   Which city council districts have the highest rate of adoption?
+
+-   What types of animal intake tend to stay longer in shelters?
+
+## Q1, Dallas Adopters Club:
+
+To tackle the first of these two questions, the variables *council_district* and *outcome_type* were isolated to allow for each district to be measured against the number of animals taken into shelters whose case was resolved in adoption.
+
+With a clearer picture of where adoption rates are highest, resources supporting shelter operations may be more effectively allocated, improving outcomes for prospective adopters and the adoptees they might hope to take in.
+
+## Dallas Adopters Club (Cont'):
+
+Here is what we found:
+
+```{r echo=FALSE}
+#finding number of total adoptions per district in the data frame
+dog_adoptions <- dog %>%
+  filter(outcome_type == "ADOPTION") %>% 
+  group_by(council_district) %>% 
+  summarize(
+    n_adoptions = n()
+  )
+
+# Now let's create the plot
+ggplot(data = dog_adoptions, aes(x = council_district, y = n_adoptions)) +
+  geom_bar(stat = "identity") +
+  labs(x = "Council District", y = "Number of Adoptions") +
+  ggtitle("Dog Adoptions by Council District")
+```
+
+## Dallas Adopters Club (Cont') (Cont'):
+
+(I took a few swipes at getting some nice language here, but I think the conclusions section of the presentation probably deserves some collective input. As a placeholder, I have paraphrased the conclusion from the write-up)
+
+Adoption rates proved to be highly variable across council districts, with the top spots going to districts 1, 4, 6, and 8. Districts with the lowest rates of adoption include 10-14. From this, we may conclude that geography plays a major role in pet adoption in the City of Dallas.
+
+## Q2, Those that Linger:
+
+Turning to our second query, we weighed the manner of intake which animals underwent against the duration of their stay in a shelter. This was done by constructing a measurement from the intake date to the outtake date (*dog_duration*), and charting it against *intake_type*.
+
+We then generated three visualizations from which to glean trends.
+
+## Those that Linger (Cont'):
+
+```{r echo=FALSE}
+#Making a duration variable using dplyr
+dog_duration <- dog %>%
+   mutate(intake_date = mdy(intake_date),
+         outcome_date = mdy(outcome_date)) %>%
+  mutate(duration = difftime(outcome_date, intake_date, units = "days")) %>%
+  mutate(duration = as.vector(duration))
+
+#Getting summary statistics for average duration
+dog_duration_summary <- dog_duration %>%
+  group_by(intake_type) %>%
+  summarize(average_duration = mean(duration, na.rm = TRUE),
+            sd_duration = sd(duration, na.rm = TRUE),
+            count_types = n()) 
+
+#Graphing violin plot (all data)
+ggplot(dog_duration, aes(x = intake_type, y = duration)) +
+  geom_violin() +
+  theme_minimal(base_size = 8) +
+  labs(x = "Intake Type", 
+       y = "Duration of Stay", 
+       title = "Shelter Intake Types and Durations in Dallas Animal Shelters in 2016 and 2017")
+```
+
+## Those that Linger (Cont') (Cont'):
+
+```{r echo=FALSE}
+#Graphing bar graph, sd is larger than mean which means there is abnormal distributions
+ggplot(dog_duration_summary) +
+  geom_bar(aes(x = intake_type, y = average_duration), 
+           stat = "identity") +
+  geom_errorbar(aes(x = intake_type, 
+                    ymin = average_duration - sd_duration, 
+                    ymax = average_duration + sd_duration)) +
+    labs(x = "Intake Type", 
+       y = "Duration of Stay with Error Bars", 
+       title = "Shelter Intake Types and Durations in Dallas Animal Shelters in 2016 and 2017")
+```
+
+## Those that Linger (Cont') (Cont') (Cont'):
+
+```{r echo=FALSE}
+#Graphing histograms, y scale is messed up because stray has many more observations than other groups
+ggplot(dog_duration, aes(x = duration)) +
+  geom_histogram() +
+  facet_wrap(~intake_type) +
+  labs(x = "Intake Type", 
+       y = "Duration of Stay", 
+       title = "Shelter Intake Duration Distrib in Dallas Animal Shelters in 2016 and 2017")
+```
+
+## Those that Linger (Cont') (Cont') (Cont') (Cont'):
+
+(Also leaving this with a placeholder for the mo' -- I imagine we really only need three or four lines describing our takeaways.)
+
+Observing the data, we found that *Owner Surrender* and *Stray* were the two most common forms of intake. In terms of duration, intake via *Foster*, *Wildlife*, *Owner Surrender*, and *Stray* correlated with the briefest tenures in shelter care, with *Found* and *Lost Report* correlating with lengthier stays.
+
+## Thank you for Listening
+
+Now go out and adopt an animal, volunteer at a shelter, or just \[funny third thing\]
+
+![](An%20animal%20shelt%2026c6ebca-c687-4492-a84a-370713f847d9.png)
