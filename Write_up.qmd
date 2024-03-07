@@ -118,3 +118,5 @@ ggplot(dog_duration, aes(x = duration)) +
 ```
 
 Discussion:
+
+Our data found that "Owner Surrender" and "stray" are by far the most common with "stray" having a strong lead over
