@@ -16,3 +16,5 @@ Variables:
 10) Outcome_date(When animals leave the shelter)
 11) Chip_status (is the animal chipped?)
 12) animal_origin (How they got the animal)
+
+
