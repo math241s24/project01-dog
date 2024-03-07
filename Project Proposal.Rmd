@@ -22,9 +22,9 @@ library(sf)
 Data Set: Week 18 Dallas Animals 
 
 ```{r}
-readr::read_csv("week18_dallas_animals.csv")%>%
+readr::read_csv("data/week18_dallas_animals.csv")%>%
   head(n = 5)
-dog <- read_csv("week18_dallas_animals.csv")
+dog <- read_csv("data/week18_dallas_animals.csv")
 ```
 
 
