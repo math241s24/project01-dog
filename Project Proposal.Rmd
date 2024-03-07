@@ -73,10 +73,33 @@ ggplot(data = dog_adoptions, aes(x = council_district, y = n_adoptions)) +
 
 ```{r}
 #trying to make a map
-dallas_districts <- st_read("C:/Users/agjjo/Downloads/Documents/GitHub/project01-dog/data/Councils/Councils.shp")
+dallas_districts <- st_read("data/Councils/Councils.shp")
 
-ggplot()+
+ggplot() +
   geom_sf(data = dallas_districts)
+
+
+```
+
+```{r}
+#joining the adoption data to the shape file
+adoptions_map <- dallas_districts %>%
+  st_transform (4326) %>%
+  inner_join(dog_adoptions, by = c("DISTRICT" = "council_district"))
+
+```
+
+```{r}
+
+#making a choropleth map of dog adoptions by district
+tm_shape(adoptions_map) + 
+  tm_polygons(col = "n_adoptions", 
+              style = "quantile", 
+              palette = "BuGn", 
+              title = "adoptions by council district") + 
+  tm_layout( 
+            main.title.position = "center", 
+            legend.outside = TRUE)
 
 
 ```
