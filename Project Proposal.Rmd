@@ -75,7 +75,7 @@ ggplot(data = dog_adoptions, aes(x = council_district, y = n_adoptions)) +
 #trying to make a map
 dallas_districts <- st_read("data/Councils/Councils.shp")
 
-ggplot()+
+ggplot() +
   geom_sf(data = dallas_districts)
 
 
