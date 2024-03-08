@@ -28,6 +28,71 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+      }
+    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+    div.sourceCode
+      { color: #f8f8f2; background-color: #2e3440; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #f8f8f2; } /* Normal */
+    code span.al { color: #ff5555; font-weight: bold; } /* Alert */
+    code span.an { color: #75715e; } /* Annotation */
+    code span.at { color: #f92672; } /* Attribute */
+    code span.bn { color: #ae81ff; } /* BaseN */
+    code span.bu { color: #66d9ef; } /* BuiltIn */
+    code span.cf { color: #f92672; } /* ControlFlow */
+    code span.ch { color: #e6db74; } /* Char */
+    code span.cn { color: #ae81ff; } /* Constant */
+    code span.co { color: #75715e; } /* Comment */
+    code span.cv { color: #75715e; } /* CommentVar */
+    code span.do { color: #75715e; } /* Documentation */
+    code span.dt { color: #66d9ef; font-style: italic; } /* DataType */
+    code span.dv { color: #ae81ff; } /* DecVal */
+    code span.er { color: #ff5555; text-decoration: underline; } /* Error */
+    code span.ex { color: #a6e22e; font-weight: bold; } /* Extension */
+    code span.fl { color: #ae81ff; } /* Float */
+    code span.fu { color: #a6e22e; } /* Function */
+    code span.im { color: #f92672; } /* Import */
+    code span.in { color: #f1fa8c; } /* Information */
+    code span.kw { color: #f92672; } /* Keyword */
+    code span.op { color: #f8f8f2; } /* Operator */
+    code span.ot { color: #a6e22e; } /* Other */
+    code span.pp { color: #f92672; } /* Preprocessor */
+    code span.re { color: #75715e; } /* RegionMarker */
+    code span.sc { color: #ae81ff; } /* SpecialChar */
+    code span.ss { color: #e6db74; } /* SpecialString */
+    code span.st { color: #e6db74; } /* String */
+    code span.va { color: #f8f8f2; } /* Variable */
+    code span.vs { color: #e6db74; } /* VerbatimString */
+    code span.wa { color: #ff5555; } /* Warning */
   </style>
   <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto.css">
   <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -361,6 +426,26 @@
 <h2>Dallas Adopters Club (Cont’) (Cont’):</h2>
 <p>Adoption rates proved to be highly variable across council districts, with the top spots going to districts 1, 4, 6, and 8. Districts with the lowest rates of adoption include 10-14. From this, we may conclude that geography plays a major role in pet adoption in the City of Dallas.</p>
 </section>
+<section id="dallas-adopters-club-cont-cont-cont" class="slide level2">
+<h2>Dallas Adopters Club (Cont’) (Cont’) (Cont’):</h2>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Reading layer `Councils' from data source 
+  `/Users/sydneystitt/Desktop/MATH241/project01-dog/data/Councils/Councils.shp' 
+  using driver `ESRI Shapefile'
+Simple feature collection with 14 features and 6 fields
+Geometry type: POLYGON
+Dimension:     XY
+Bounding box:  xmin: 2430146 ymin: 6909399 xmax: 2592859 ymax: 7061339
+Projected CRS: NAD83 / Texas North Central (ftUS)</code></pre>
+</div>
+
+</div>
+<img data-src="presentation_files/figure-revealjs/unnamed-chunk-2-1.png" width="960" class="r-stretch"></section>
+<section id="dallas-adopters-club-cont-cont-cont-cont" class="slide level2">
+<h2>Dallas Adopters Club (Cont’) (Cont’) (Cont’) (Cont’):</h2>
+
+<img data-src="presentation_files/figure-revealjs/unnamed-chunk-3-1.png" width="960" class="r-stretch"></section>
 <section id="q2-those-that-linger" class="slide level2">
 <h2>Q2, Those that Linger:</h2>
 <p>Turning to our second query, we weighed the manner of intake which animals underwent against the duration of their stay in a shelter. This was done by constructing a measurement from the intake date to the outtake date (<em>dog_duration</em>), and charting it against <em>intake_type</em>.</p>
@@ -368,23 +453,49 @@
 </section>
 <section id="those-that-linger-cont" class="slide level2">
 <h2>Those that Linger (Cont’):</h2>
-
-<img data-src="presentation_files/figure-revealjs/unnamed-chunk-2-1.png" width="960" class="r-stretch"></section>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="co">#Making a duration variable using dplyr</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a>dog_duration <span class="ot">&lt;-</span> dog <span class="sc">%&gt;%</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a>   <span class="fu">mutate</span>(<span class="at">intake_date =</span> <span class="fu">mdy</span>(intake_date),</span>
+<span id="cb2-4"><a href="#cb2-4"></a>         <span class="at">outcome_date =</span> <span class="fu">mdy</span>(outcome_date)) <span class="sc">%&gt;%</span></span>
+<span id="cb2-5"><a href="#cb2-5"></a>  <span class="fu">mutate</span>(<span class="at">duration =</span> <span class="fu">difftime</span>(outcome_date, intake_date, <span class="at">units =</span> <span class="st">"days"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb2-6"><a href="#cb2-6"></a>  <span class="fu">mutate</span>(<span class="at">duration =</span> <span class="fu">as.vector</span>(duration))</span>
+<span id="cb2-7"><a href="#cb2-7"></a>dog_duration_summary <span class="ot">&lt;-</span> dog_duration <span class="sc">%&gt;%</span></span>
+<span id="cb2-8"><a href="#cb2-8"></a>  <span class="fu">group_by</span>(intake_type) <span class="sc">%&gt;%</span></span>
+<span id="cb2-9"><a href="#cb2-9"></a>  <span class="fu">summarize</span>(<span class="at">average_duration =</span> <span class="fu">mean</span>(duration, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb2-10"><a href="#cb2-10"></a>            <span class="at">sd_duration =</span> <span class="fu">sd</span>(duration, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb2-11"><a href="#cb2-11"></a>            <span class="at">count_types =</span> <span class="fu">n</span>()) </span>
+<span id="cb2-12"><a href="#cb2-12"></a><span class="fu">print</span>(dog_duration_summary)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 8 × 4
+  intake_type     average_duration sd_duration count_types
+  &lt;chr&gt;                      &lt;dbl&gt;       &lt;dbl&gt;       &lt;int&gt;
+1 CONFISCATED                9.94         8.26        1633
+2 FOSTER                     1.86         3.95         492
+3 FOUND REPORT              12.4          9.21         420
+4 LOST REPORT               12.7          7.09         990
+5 OWNER SURRENDER            5.21         7.01        9612
+6 STRAY                      6.36         7.00       20890
+7 TRANSFER                   8.08         9.92          88
+8 WILDLIFE                   0.282        1.34         694</code></pre>
+</div>
+</div>
+</section>
 <section id="those-that-linger-cont-cont" class="slide level2">
 <h2>Those that Linger (Cont’) (Cont’):</h2>
 
-<img data-src="presentation_files/figure-revealjs/unnamed-chunk-3-1.png" width="960" class="r-stretch"></section>
+<img data-src="presentation_files/figure-revealjs/unnamed-chunk-5-1.png" width="960" class="r-stretch"></section>
 <section id="those-that-linger-cont-cont-cont" class="slide level2">
 <h2>Those that Linger (Cont’) (Cont’) (Cont’):</h2>
 
-<img data-src="presentation_files/figure-revealjs/unnamed-chunk-4-1.png" width="960" class="r-stretch"></section>
+<img data-src="presentation_files/figure-revealjs/unnamed-chunk-6-1.png" width="960" class="r-stretch"></section>
 <section id="those-that-linger-cont-cont-cont-cont" class="slide level2">
 <h2>Those that Linger (Cont’) (Cont’) (Cont’) (Cont’):</h2>
-<p>Observing the data, we found that <em>Owner Surrender</em> and <em>Stray</em> were the two most common forms of intake. In terms of duration, intake via <em>Foster</em>, <em>Wildlife</em>, <em>Owner Surrender</em>, and <em>Stray</em> correlated with the briefest tenures in shelter care, with <em>Found</em> and <em>Lost Report</em> correlating with lengthier stays.</p>
+<p>Observing the data, we found that <em>Owner Surrender</em> and <em>Stray</em> were the two most common forms of intake. In terms of duration, intake via <em>Foster</em>, <em>Wildlife</em>, <em>Owner Surrender</em>, and <em>Stray</em> correlated with the briefest tenures in shelter care, with <em>Found</em> and <em>Lost Report</em> correlating with lengthier stays. This may be because contacting owners for lost and found animals can be a lengthy process. Additionally, most wildlife animals end up euthanized.</p>
 </section>
 <section id="thank-you-for-listening" class="slide level2">
 <h2>Thank you for Listening</h2>
-<p>Now go out and adopt an animal, volunteer at a shelter, or just gift Adrien a shelter dog!</p>
+<p>Now go out and adopt an animal, volunteer at a shelter, or just gift Adrien a shelter dog</p>
 
 
 <img data-src="data/An animal shelt 26c6ebca-c687-4492-a84a-370713f847d9.png" class="r-stretch"><div class="footer footer-default">
