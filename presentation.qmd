@@ -46,7 +46,7 @@ We set out to cultivate a clearer understanding of who adopts, and who gets adop
 
 -   What types of animal intake tend to stay longer in shelters?
 
-## Q1, Dallas Adopters Club:
+## Q1, Dallas Adopters Club: 
 
 -   We used the variables *council_district* and *outcome_type*
 
