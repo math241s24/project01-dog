@@ -34,9 +34,13 @@ dog <- read_csv("data/week18_dallas_animals.csv")
 
 ## Our Opening Spiel:
 
-Using publicly available data supplied by the venerable animal shelters of the City of Dallas, we set out to cultivate a clearer understanding of who adopts, and who gets adopted.
+Data
 
-This was achieved by examining two key questions, those being:
+-   34,819 observations across 13 variables
+
+-   Data collected by the multiple Dallas shelters in 2016 and 2017
+
+We set out to cultivate a clearer understanding of who adopts, and who gets adopted. This was achieved by examining two key questions, those being:
 
 -   Which city council districts have the highest rate of adoption?
 
@@ -44,9 +48,13 @@ This was achieved by examining two key questions, those being:
 
 ## Q1, Dallas Adopters Club:
 
-To tackle the first of these two questions, the variables *council_district* and *outcome_type* were isolated to allow for each district to be measured against the number of animals taken into shelters whose case was resolved in adoption.
+-   We used the variables *council_district* and *outcome_type*
 
-With a clearer picture of where adoption rates are highest, resources supporting shelter operations may be more effectively allocated, improving outcomes for prospective adopters and the adoptees they might hope to take in.
+    -   isolated to allow for each district to be measured against the number of animals taken into shelters whose case was resolved in adoption.
+
+-   With a clearer picture of where adoption rates are highest, resources supporting shelter operations may be more effectively allocated
+
+    -   Could improve outcomes for prospective adopters and the adoptees they might hope to take in.
 
 ## Dallas Adopters Club (Cont'):
 
@@ -71,7 +79,13 @@ ggplot(data = dog_adoptions, aes(x = council_district, y = n_adoptions)) +
 
 ## Dallas Adopters Club (Cont') (Cont'):
 
-Adoption rates proved to be highly variable across council districts, with the top spots going to districts 1, 4, 6, and 8. Districts with the lowest rates of adoption include 10-14. From this, we may conclude that geography plays a major role in pet adoption in the City of Dallas.
+-   Adoption rates proved to be highly variable across council districts
+
+-   Top adopting districts include 1, 4, 6, and 8
+
+-   Lowest rates of adopting districts include 10-14
+
+-   Geography may play a major role in pet adoption in the City of Dallas.
 
 ## Dallas Adopters Club (Cont') (Cont') (Cont'):
 
@@ -100,9 +114,13 @@ tm_shape(adoptions_map) +
 
 ## Q2, Those that Linger:
 
-Turning to our second query, we weighed the manner of intake which animals underwent against the duration of their stay in a shelter. This was done by constructing a measurement from the intake date to the outtake date (*dog_duration*), and charting it against *intake_type*.
+-   We weighed the manner of intake which animals underwent against the duration of their stay in a shelter.
 
-We then generated three visualizations from which to glean trends.
+    -   Constructing a measurement from the intake date to the outtake date (*dog_duration*)
+
+    -   Charting it against *intake_type*.
+
+-   We then generated two visualizations from which to glean trends.
 
 ## Those that Linger (Cont'):
 
@@ -149,7 +167,15 @@ ggplot(dog_duration, aes(x = duration)) +
 
 ## Those that Linger (Cont') (Cont') (Cont') (Cont'):
 
-Observing the data, we found that *Owner Surrender* and *Stray* were the two most common forms of intake. In terms of duration, intake via *Foster*, *Wildlife*, *Owner Surrender*, and *Stray* correlated with the briefest tenures in shelter care, with *Found* and *Lost Report* correlating with lengthier stays. This may be because contacting owners for lost and found animals can be a lengthy process. Additionally, most wildlife animals end up euthanized.
+-   *Owner Surrender* and *Stray* were the two most common forms of intake.
+
+-   Intake via *Foster*, *Wildlife*, *Owner Surrender*, and *Stray* correlated with the briefest tenures in shelter care
+
+    -   Half of wildlife intakes end up euthanized, may explain their shorter stays (339/694, or 49%).
+
+-   *Found* and *Lost Report* correlating with lengthier stays
+
+    -   Contacting owners for lost and found animals can be a lengthy process
 
 ## Thank you for Listening
 

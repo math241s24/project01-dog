@@ -405,8 +405,12 @@
 </section>
 <section id="our-opening-spiel" class="slide level2">
 <h2>Our Opening Spiel:</h2>
-<p>Using publicly available data supplied by the venerable animal shelters of the City of Dallas, we set out to cultivate a clearer understanding of who adopts, and who gets adopted.</p>
-<p>This was achieved by examining two key questions, those being:</p>
+<p>Data</p>
+<ul>
+<li><p>34,819 observations across 13 variables</p></li>
+<li><p>Data collected by the multiple Dallas shelters in 2016 and 2017</p></li>
+</ul>
+<p>We set out to cultivate a clearer understanding of who adopts, and who gets adopted. This was achieved by examining two key questions, those being:</p>
 <ul>
 <li><p>Which city council districts have the highest rate of adoption?</p></li>
 <li><p>What types of animal intake tend to stay longer in shelters?</p></li>
@@ -414,8 +418,16 @@
 </section>
 <section id="q1-dallas-adopters-club" class="slide level2">
 <h2>Q1, Dallas Adopters Club:</h2>
-<p>To tackle the first of these two questions, the variables <em>council_district</em> and <em>outcome_type</em> were isolated to allow for each district to be measured against the number of animals taken into shelters whose case was resolved in adoption.</p>
-<p>With a clearer picture of where adoption rates are highest, resources supporting shelter operations may be more effectively allocated, improving outcomes for prospective adopters and the adoptees they might hope to take in.</p>
+<ul>
+<li><p>We used the variables <em>council_district</em> and <em>outcome_type</em></p>
+<ul>
+<li>isolated to allow for each district to be measured against the number of animals taken into shelters whose case was resolved in adoption.</li>
+</ul></li>
+<li><p>With a clearer picture of where adoption rates are highest, resources supporting shelter operations may be more effectively allocated</p>
+<ul>
+<li>Could improve outcomes for prospective adopters and the adoptees they might hope to take in.</li>
+</ul></li>
+</ul>
 </section>
 <section id="dallas-adopters-club-cont" class="slide level2">
 <h2>Dallas Adopters Club (Cont’):</h2>
@@ -424,7 +436,12 @@
 <img data-src="presentation_files/figure-revealjs/unnamed-chunk-1-1.png" width="960" class="r-stretch"></section>
 <section id="dallas-adopters-club-cont-cont" class="slide level2">
 <h2>Dallas Adopters Club (Cont’) (Cont’):</h2>
-<p>Adoption rates proved to be highly variable across council districts, with the top spots going to districts 1, 4, 6, and 8. Districts with the lowest rates of adoption include 10-14. From this, we may conclude that geography plays a major role in pet adoption in the City of Dallas.</p>
+<ul>
+<li><p>Adoption rates proved to be highly variable across council districts</p></li>
+<li><p>Top adopting districts include 1, 4, 6, and 8</p></li>
+<li><p>Lowest rates of adopting districts include 10-14</p></li>
+<li><p>Geography may play a major role in pet adoption in the City of Dallas.</p></li>
+</ul>
 </section>
 <section id="dallas-adopters-club-cont-cont-cont" class="slide level2">
 <h2>Dallas Adopters Club (Cont’) (Cont’) (Cont’):</h2>
@@ -448,8 +465,14 @@ Projected CRS: NAD83 / Texas North Central (ftUS)</code></pre>
 <img data-src="presentation_files/figure-revealjs/unnamed-chunk-3-1.png" width="960" class="r-stretch"></section>
 <section id="q2-those-that-linger" class="slide level2">
 <h2>Q2, Those that Linger:</h2>
-<p>Turning to our second query, we weighed the manner of intake which animals underwent against the duration of their stay in a shelter. This was done by constructing a measurement from the intake date to the outtake date (<em>dog_duration</em>), and charting it against <em>intake_type</em>.</p>
-<p>We then generated three visualizations from which to glean trends.</p>
+<ul>
+<li><p>We weighed the manner of intake which animals underwent against the duration of their stay in a shelter.</p>
+<ul>
+<li><p>Constructing a measurement from the intake date to the outtake date (<em>dog_duration</em>)</p></li>
+<li><p>Charting it against <em>intake_type</em>.</p></li>
+</ul></li>
+<li><p>We then generated two visualizations from which to glean trends.</p></li>
+</ul>
 </section>
 <section id="those-that-linger-cont" class="slide level2">
 <h2>Those that Linger (Cont’):</h2>
@@ -491,7 +514,17 @@ Projected CRS: NAD83 / Texas North Central (ftUS)</code></pre>
 <img data-src="presentation_files/figure-revealjs/unnamed-chunk-6-1.png" width="960" class="r-stretch"></section>
 <section id="those-that-linger-cont-cont-cont-cont" class="slide level2">
 <h2>Those that Linger (Cont’) (Cont’) (Cont’) (Cont’):</h2>
-<p>Observing the data, we found that <em>Owner Surrender</em> and <em>Stray</em> were the two most common forms of intake. In terms of duration, intake via <em>Foster</em>, <em>Wildlife</em>, <em>Owner Surrender</em>, and <em>Stray</em> correlated with the briefest tenures in shelter care, with <em>Found</em> and <em>Lost Report</em> correlating with lengthier stays. This may be because contacting owners for lost and found animals can be a lengthy process. Additionally, most wildlife animals end up euthanized.</p>
+<ul>
+<li><p><em>Owner Surrender</em> and <em>Stray</em> were the two most common forms of intake.</p></li>
+<li><p>Intake via <em>Foster</em>, <em>Wildlife</em>, <em>Owner Surrender</em>, and <em>Stray</em> correlated with the briefest tenures in shelter care</p>
+<ul>
+<li>Half of wildlife intakes end up euthanized, may explain their shorter stays (339/694, or 49%).</li>
+</ul></li>
+<li><p><em>Found</em> and <em>Lost Report</em> correlating with lengthier stays</p>
+<ul>
+<li>Contacting owners for lost and found animals can be a lengthy process</li>
+</ul></li>
+</ul>
 </section>
 <section id="thank-you-for-listening" class="slide level2">
 <h2>Thank you for Listening</h2>

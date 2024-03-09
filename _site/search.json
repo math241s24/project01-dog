@@ -151,14 +151,14 @@
     "href": "presentation.html#our-opening-spiel",
     "title": "The Real House Pets of Dallas",
     "section": "Our Opening Spiel:",
-    "text": "Our Opening Spiel:\nUsing publicly available data supplied by the venerable animal shelters of the City of Dallas, we set out to cultivate a clearer understanding of who adopts, and who gets adopted.\nThis was achieved by examining two key questions, those being:\n\nWhich city council districts have the highest rate of adoption?\nWhat types of animal intake tend to stay longer in shelters?"
+    "text": "Our Opening Spiel:\nData\n\n34,819 observations across 13 variables\nData collected by the multiple Dallas shelters in 2016 and 2017\n\nWe set out to cultivate a clearer understanding of who adopts, and who gets adopted. This was achieved by examining two key questions, those being:\n\nWhich city council districts have the highest rate of adoption?\nWhat types of animal intake tend to stay longer in shelters?"
   },
   {
     "objectID": "presentation.html#q1-dallas-adopters-club",
     "href": "presentation.html#q1-dallas-adopters-club",
     "title": "The Real House Pets of Dallas",
     "section": "Q1, Dallas Adopters Club:",
-    "text": "Q1, Dallas Adopters Club:\nTo tackle the first of these two questions, the variables council_district and outcome_type were isolated to allow for each district to be measured against the number of animals taken into shelters whose case was resolved in adoption.\nWith a clearer picture of where adoption rates are highest, resources supporting shelter operations may be more effectively allocated, improving outcomes for prospective adopters and the adoptees they might hope to take in."
+    "text": "Q1, Dallas Adopters Club:\n\nWe used the variables council_district and outcome_type\n\nisolated to allow for each district to be measured against the number of animals taken into shelters whose case was resolved in adoption.\n\nWith a clearer picture of where adoption rates are highest, resources supporting shelter operations may be more effectively allocated\n\nCould improve outcomes for prospective adopters and the adoptees they might hope to take in."
   },
   {
     "objectID": "presentation.html#dallas-adopters-club-cont",
@@ -172,14 +172,14 @@
     "href": "presentation.html#dallas-adopters-club-cont-cont",
     "title": "The Real House Pets of Dallas",
     "section": "Dallas Adopters Club (Cont’) (Cont’):",
-    "text": "Dallas Adopters Club (Cont’) (Cont’):\nAdoption rates proved to be highly variable across council districts, with the top spots going to districts 1, 4, 6, and 8. Districts with the lowest rates of adoption include 10-14. From this, we may conclude that geography plays a major role in pet adoption in the City of Dallas."
+    "text": "Dallas Adopters Club (Cont’) (Cont’):\n\nAdoption rates proved to be highly variable across council districts\nTop adopting districts include 1, 4, 6, and 8\nLowest rates of adopting districts include 10-14\nGeography may play a major role in pet adoption in the City of Dallas."
   },
   {
     "objectID": "presentation.html#q2-those-that-linger",
     "href": "presentation.html#q2-those-that-linger",
     "title": "The Real House Pets of Dallas",
     "section": "Q2, Those that Linger:",
-    "text": "Q2, Those that Linger:\nTurning to our second query, we weighed the manner of intake which animals underwent against the duration of their stay in a shelter. This was done by constructing a measurement from the intake date to the outtake date (dog_duration), and charting it against intake_type.\nWe then generated three visualizations from which to glean trends."
+    "text": "Q2, Those that Linger:\n\nWe weighed the manner of intake which animals underwent against the duration of their stay in a shelter.\n\nConstructing a measurement from the intake date to the outtake date (dog_duration)\nCharting it against intake_type.\n\nWe then generated two visualizations from which to glean trends."
   },
   {
     "objectID": "presentation.html#those-that-linger-cont",
@@ -207,7 +207,7 @@
     "href": "presentation.html#those-that-linger-cont-cont-cont-cont",
     "title": "The Real House Pets of Dallas",
     "section": "Those that Linger (Cont’) (Cont’) (Cont’) (Cont’):",
-    "text": "Those that Linger (Cont’) (Cont’) (Cont’) (Cont’):\nObserving the data, we found that Owner Surrender and Stray were the two most common forms of intake. In terms of duration, intake via Foster, Wildlife, Owner Surrender, and Stray correlated with the briefest tenures in shelter care, with Found and Lost Report correlating with lengthier stays. This may be because contacting owners for lost and found animals can be a lengthy process. Additionally, most wildlife animals end up euthanized."
+    "text": "Those that Linger (Cont’) (Cont’) (Cont’) (Cont’):\n\nOwner Surrender and Stray were the two most common forms of intake.\nIntake via Foster, Wildlife, Owner Surrender, and Stray correlated with the briefest tenures in shelter care\n\nHalf of wildlife intakes end up euthanized, may explain their shorter stays (339/694, or 49%).\n\nFound and Lost Report correlating with lengthier stays\n\nContacting owners for lost and found animals can be a lengthy process"
   },
   {
     "objectID": "presentation.html#thank-you-for-listening",
