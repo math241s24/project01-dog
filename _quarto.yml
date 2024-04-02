@@ -6,7 +6,7 @@ website:
   navbar:
     right:
       - icon: github
-        href: https://github.com/aallorant/project01-dog
+        href: https://github.com/math241s24/project01-dog
     left:
       - text: "Project"
         href: Write_up.html
