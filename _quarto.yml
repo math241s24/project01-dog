@@ -9,13 +9,13 @@ website:
         href: https://github.com/aallorant/project01-dog
     left:
       - text: "Project"
-        href: index.qmd
+        href: Write_up.html
       - text: "Proposal"
-        href: proposal.qmd
+        href: proposal.html
       - text: "Presentation"
-        href: presentation.qmd
+        href: presentation.html
       - text: "About"
-        href: about.qmd
+        href: about.html
 
 format:
   html:

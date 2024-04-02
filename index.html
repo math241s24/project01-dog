@@ -223,8 +223,6 @@ remotes::install_github('r-tmap/tmap')</code></pre>
 <p>To comprehensively address the question of dog adoption rates across city council districts, a combination of visualizations has been employed. The initial bar plot succinctly illustrates the raw counts of adoptions in each district, providing a quick overview of the districts with higher adoption rates. Building upon this, a box plot offers a more detailed perspective, showcasing the distribution of adoption rates within each district. This plot is instrumental in identifying any potential variations, outliers, or skewness in the adoption data. Finally, a faceted bar plot takes the analysis a step further by presenting individual bar plots for each council district. This approach allows for a nuanced examination of adoption patterns in each district while maintaining a clear comparative framework. Together, these visualizations offer a comprehensive understanding of the adoption landscape, enabling insights into both the overall trends and the variability within specific city council districts.</p>
 <p>Analysis:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"data/week18_dallas_animals.csv"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="at">n =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 5 × 13
   animal_id animal_type animal_breed   month  year census_tract council_district
@@ -237,15 +235,6 @@ remotes::install_github('r-tmap/tmap')</code></pre>
 # ℹ 6 more variables: intake_type &lt;chr&gt;, intake_date &lt;chr&gt;, outcome_type &lt;chr&gt;,
 #   outcome_date &lt;chr&gt;, chip_status &lt;chr&gt;, animal_origin &lt;chr&gt;</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>dog <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/week18_dallas_animals.csv"</span>)</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co">#finding number of total adoptions per district in the data frame</span></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>dog_adoptions <span class="ot">&lt;-</span> dog <span class="sc">%&gt;%</span></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(outcome_type <span class="sc">==</span> <span class="st">"ADOPTION"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(council_district) <span class="sc">%&gt;%</span> </span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(</span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_adoptions =</span> <span class="fu">n</span>()</span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <div class="cell-output-display">
