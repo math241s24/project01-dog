@@ -38,7 +38,7 @@ To comprehensively address the question of dog adoption rates across city counci
 
 Analysis:
 
-```{r echo=FALSE}
+```{r echo= FALSE}
 
 readr::read_csv("data/week18_dallas_animals.csv") %>%
   head(n = 5)
@@ -53,7 +53,7 @@ dog_adoptions <- dog %>%
   )
 ```
 
-```{r echo=FALSE}}
+```{r echo=FALSE}
 # Now let's create the plot
 ggplot(data = dog_adoptions, aes(x = council_district, y = n_adoptions)) +
   geom_bar(stat = "identity") +
@@ -98,7 +98,7 @@ To address this question, the dataset should include relevant variables such as 
 
 Approach:
 
-To address the inquiry regarding the factors influencing the duration of stay for animals in shelters, a systematic approach involving the dplyr and ggplot2 packages is employed. Firstly, a new variable representing the duration of stay is introduced using the dplyr package. This step allows for the transformation of the data set to include a critical metric—stay duration—essential for subsequent analysis. The ggplot2 package is then leveraged to create a visually informative bar graph. This graph employs the average stay duration as the y-axis variable and different types of animal intake as categorical variables along the x-axis. Including error bars in the visualization provides a measure of variability around the mean stay duration for each intake type, offering a more comprehensive understanding of the data distribution. This meticulous approach not only captures the central tendencies in shelter stay duration but also provides insights into the potential variations and uncertainties associated with each animal intake category.
+To address the inquiry regarding the factors influencing the duration of stay for animals in shelters, a systematic approach involving the dplyr and ggplot2 packages is employed. Firstly, a new variable representing the duration of stay is introduced using the dplyr package. This step allows for the transformation of the data set to include a critical metric---stay duration---essential for subsequent analysis. The ggplot2 package is then leveraged to create a visually informative bar graph. This graph employs the average stay duration as the y-axis variable and different types of animal intake as categorical variables along the x-axis. Including error bars in the visualization provides a measure of variability around the mean stay duration for each intake type, offering a more comprehensive understanding of the data distribution. This meticulous approach not only captures the central tendencies in shelter stay duration but also provides insights into the potential variations and uncertainties associated with each animal intake category.
 
 Analysis:
 

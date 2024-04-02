@@ -90,7 +90,7 @@ ggplot(data = dog_adoptions, aes(x = council_district, y = n_adoptions)) +
 ## Dallas Adopters Club (Cont') (Cont') (Cont'):
 
 ```{r echo=FALSE, message=FALSE}
-dallas_districts <- st_read("/Users/sydneystitt/Desktop/MATH241/project01-dog/data/Councils/Councils.shp")
+dallas_districts <- st_read("data/Councils/Councils.shp")
 ggplot() +
   geom_sf(data = dallas_districts)
 adoptions_map <- dallas_districts %>%
