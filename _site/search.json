@@ -151,14 +151,14 @@
     "href": "presentation.html#our-opening-spiel",
     "title": "The Real House Pets of Dallas",
     "section": "Our Opening Spiel:",
-    "text": "Our Opening Spiel:\nUsing publicly available data supplied by the venerable animal shelters of the City of Dallas, we set out to cultivate a clearer understanding of who adopts, and who gets adopted.\nThis was achieved by examining two key questions, those being:\n\nWhich city council districts have the highest rate of adoption?\nWhat types of animal intake tend to stay longer in shelters?"
+    "text": "Our Opening Spiel:\nData\n\n34,819 observations across 13 variables\nData collected by the multiple Dallas shelters in 2016 and 2017\n\nWe set out to cultivate a clearer understanding of who adopts, and who gets adopted. This was achieved by examining two key questions, those being:\n\nWhich city council districts have the highest rate of adoption?\nWhat types of animal intake tend to stay longer in shelters?"
   },
   {
     "objectID": "presentation.html#q1-dallas-adopters-club",
     "href": "presentation.html#q1-dallas-adopters-club",
     "title": "The Real House Pets of Dallas",
     "section": "Q1, Dallas Adopters Club:",
-    "text": "Q1, Dallas Adopters Club:\nTo tackle the first of these two questions, the variables council_district and outcome_type were isolated to allow for each district to be measured against the number of animals taken into shelters whose case was resolved in adoption.\nWith a clearer picture of where adoption rates are highest, resources supporting shelter operations may be more effectively allocated, improving outcomes for prospective adopters and the adoptees they might hope to take in."
+    "text": "Q1, Dallas Adopters Club:\n\nWe used the variables council_district and outcome_type\n\nisolated to allow for each district to be measured against the number of animals taken into shelters whose case was resolved in adoption.\n\nWith a clearer picture of where adoption rates are highest, resources supporting shelter operations may be more effectively allocated\n\nCould improve outcomes for prospective adopters and the adoptees they might hope to take in."
   },
   {
     "objectID": "presentation.html#dallas-adopters-club-cont",
@@ -172,21 +172,21 @@
     "href": "presentation.html#dallas-adopters-club-cont-cont",
     "title": "The Real House Pets of Dallas",
     "section": "Dallas Adopters Club (Cont’) (Cont’):",
-    "text": "Dallas Adopters Club (Cont’) (Cont’):\n(I took a few swipes at getting some nice language here, but I think the conclusions section of the presentation probably deserves some collective input. As a placeholder, I have paraphrased the conclusion from the write-up)\nAdoption rates proved to be highly variable across council districts, with the top spots going to districts 1, 4, 6, and 8. Districts with the lowest rates of adoption include 10-14. From this, we may conclude that geography plays a major role in pet adoption in the City of Dallas."
+    "text": "Dallas Adopters Club (Cont’) (Cont’):\n\nAdoption rates proved to be highly variable across council districts\nTop adopting districts include 1, 4, 6, and 8\nLowest rates of adopting districts include 10-14\nGeography may play a major role in pet adoption in the City of Dallas."
   },
   {
     "objectID": "presentation.html#q2-those-that-linger",
     "href": "presentation.html#q2-those-that-linger",
     "title": "The Real House Pets of Dallas",
     "section": "Q2, Those that Linger:",
-    "text": "Q2, Those that Linger:\nTurning to our second query, we weighed the manner of intake which animals underwent against the duration of their stay in a shelter. This was done by constructing a measurement from the intake date to the outtake date (dog_duration), and charting it against intake_type.\nWe then generated three visualizations from which to glean trends."
+    "text": "Q2, Those that Linger:\n\nWe weighed the manner of intake which animals underwent against the duration of their stay in a shelter.\n\nConstructing a measurement from the intake date to the outtake date (dog_duration)\nCharting it against intake_type.\n\nWe then generated two visualizations from which to glean trends."
   },
   {
     "objectID": "presentation.html#those-that-linger-cont",
     "href": "presentation.html#those-that-linger-cont",
     "title": "The Real House Pets of Dallas",
     "section": "Those that Linger (Cont’):",
-    "text": "Those that Linger (Cont’):"
+    "text": "Those that Linger (Cont’):\n\n#Making a duration variable using dplyr\ndog_duration &lt;- dog %&gt;%\n   mutate(intake_date = mdy(intake_date),\n         outcome_date = mdy(outcome_date)) %&gt;%\n  mutate(duration = difftime(outcome_date, intake_date, units = \"days\")) %&gt;%\n  mutate(duration = as.vector(duration))\ndog_duration_summary &lt;- dog_duration %&gt;%\n  group_by(intake_type) %&gt;%\n  summarize(average_duration = mean(duration, na.rm = TRUE),\n            sd_duration = sd(duration, na.rm = TRUE),\n            count_types = n()) \nprint(dog_duration_summary)\n\n# A tibble: 8 × 4\n  intake_type     average_duration sd_duration count_types\n  &lt;chr&gt;                      &lt;dbl&gt;       &lt;dbl&gt;       &lt;int&gt;\n1 CONFISCATED                9.94         8.26        1633\n2 FOSTER                     1.86         3.95         492\n3 FOUND REPORT              12.4          9.21         420\n4 LOST REPORT               12.7          7.09         990\n5 OWNER SURRENDER            5.21         7.01        9612\n6 STRAY                      6.36         7.00       20890\n7 TRANSFER                   8.08         9.92          88\n8 WILDLIFE                   0.282        1.34         694"
   },
   {
     "objectID": "presentation.html#those-that-linger-cont-cont",
@@ -207,13 +207,48 @@
     "href": "presentation.html#those-that-linger-cont-cont-cont-cont",
     "title": "The Real House Pets of Dallas",
     "section": "Those that Linger (Cont’) (Cont’) (Cont’) (Cont’):",
-    "text": "Those that Linger (Cont’) (Cont’) (Cont’) (Cont’):\n(Also leaving this with a placeholder for the mo’ – I imagine we really only need three or four lines describing our takeaways.)\nObserving the data, we found that Owner Surrender and Stray were the two most common forms of intake. In terms of duration, intake via Foster, Wildlife, Owner Surrender, and Stray correlated with the briefest tenures in shelter care, with Found and Lost Report correlating with lengthier stays."
+    "text": "Those that Linger (Cont’) (Cont’) (Cont’) (Cont’):\n\nOwner Surrender and Stray were the two most common forms of intake.\nIntake via Foster, Wildlife, Owner Surrender, and Stray correlated with the briefest tenures in shelter care\n\nHalf of wildlife intakes end up euthanized, may explain their shorter stays (339/694, or 49%).\n\nFound and Lost Report correlating with lengthier stays\n\nContacting owners for lost and found animals can be a lengthy process"
   },
   {
     "objectID": "presentation.html#thank-you-for-listening",
     "href": "presentation.html#thank-you-for-listening",
     "title": "The Real House Pets of Dallas",
     "section": "Thank you for Listening",
-    "text": "Thank you for Listening\nNow go out and adopt an animal, volunteer at a shelter, or just [funny third thing]"
+    "text": "Thank you for Listening\nNow go out and adopt an animal, volunteer at a shelter, or just gift Adrien a shelter dog"
+  },
+  {
+    "objectID": "presentation.html#dallas-adopters-club-cont-cont-1",
+    "href": "presentation.html#dallas-adopters-club-cont-cont-1",
+    "title": "The Real House Pets of Dallas",
+    "section": "Dallas Adopters Club (Cont’) (Cont’):",
+    "text": "Dallas Adopters Club (Cont’) (Cont’):\n\ndallas_districts &lt;- st_read(\"data/Councils/Councils.shp\")\n\nReading layer `Councils' from data source \n  `/Users/sydneystitt/Desktop/MATH241/project01-dog/data/Councils/Councils.shp' \n  using driver `ESRI Shapefile'\nSimple feature collection with 14 features and 6 fields\nGeometry type: POLYGON\nDimension:     XY\nBounding box:  xmin: 2430146 ymin: 6909399 xmax: 2592859 ymax: 7061339\nProjected CRS: NAD83 / Texas North Central (ftUS)\n\nggplot() +\n  geom_sf(data = dallas_districts)\n\n\n\n#joining the adoption data to the shape file\nadoptions_map &lt;- dallas_districts %&gt;%\n  st_transform (4326) %&gt;%\n  inner_join(dog_adoptions, by = c(\"DISTRICT\" = \"council_district\"))\ntm_shape(adoptions_map) + \n  tm_polygons(col = \"n_adoptions\", \n              style = \"quantile\", \n              palette = \"BuGn\", \n              title = \"adoptions by council district\") + \n  tm_layout( \n            main.title.position = \"center\", \n            legend.outside = TRUE)"
+  },
+  {
+    "objectID": "presentation.html#dallas-adopters-club-cont-cont-cont",
+    "href": "presentation.html#dallas-adopters-club-cont-cont-cont",
+    "title": "The Real House Pets of Dallas",
+    "section": "Dallas Adopters Club (Cont’) (Cont’) (Cont’):",
+    "text": "Dallas Adopters Club (Cont’) (Cont’) (Cont’):\n\n\nReading layer `Councils' from data source \n  `/Users/sydneystitt/Desktop/MATH241/project01-dog/data/Councils/Councils.shp' \n  using driver `ESRI Shapefile'\nSimple feature collection with 14 features and 6 fields\nGeometry type: POLYGON\nDimension:     XY\nBounding box:  xmin: 2430146 ymin: 6909399 xmax: 2592859 ymax: 7061339\nProjected CRS: NAD83 / Texas North Central (ftUS)"
+  },
+  {
+    "objectID": "presentation.html#dallas-adopters-club-cont-cont-cont-1",
+    "href": "presentation.html#dallas-adopters-club-cont-cont-cont-1",
+    "title": "The Real House Pets of Dallas",
+    "section": "Dallas Adopters Club (Cont’) (Cont’) (Cont’):",
+    "text": "Dallas Adopters Club (Cont’) (Cont’) (Cont’):\n\ntm_shape(adoptions_map) + \n  tm_polygons(col = \"n_adoptions\", \n              style = \"quantile\", \n              palette = \"BuGn\", \n              title = \"adoptions by council district\") + \n  tm_layout( \n            main.title.position = \"center\", \n            legend.outside = TRUE)"
+  },
+  {
+    "objectID": "presentation.html#dallas-adopters-club-cont-cont-cont-cont",
+    "href": "presentation.html#dallas-adopters-club-cont-cont-cont-cont",
+    "title": "The Real House Pets of Dallas",
+    "section": "Dallas Adopters Club (Cont’) (Cont’) (Cont’) (Cont’):",
+    "text": "Dallas Adopters Club (Cont’) (Cont’) (Cont’) (Cont’):"
+  },
+  {
+    "objectID": "presentation.html#other-wildlife-not-dallas-specific99d8c9",
+    "href": "presentation.html#other-wildlife-not-dallas-specific99d8c9",
+    "title": "The Real House Pets of Dallas",
+    "section": "Other Wildlife (Not Dallas Specific):#99d8c9",
+    "text": "Other Wildlife (Not Dallas Specific):#99d8c9"
   }
 ]
