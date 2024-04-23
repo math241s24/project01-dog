@@ -10,7 +10,7 @@ website:
         href: https://github.com/math241s24/project01-dog
     left:
       - text: "Project"
-        href: Write_up.html
+        href: index.html
       - text: "Proposal"
         href: proposal.html
       - text: "Presentation"
